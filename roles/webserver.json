@@ -1,0 +1,23 @@
+{
+  "name": "webserver",
+  "default_attributes": {
+    "apache2": {
+      "listen_ports": [
+        "80",
+        "443"
+      ]
+    }
+  },
+  "json_class": "Chef::Role",
+  "recipes": [
+    "apache2",
+    "apache2::mod_ssl"
+  ],
+  "description": "The base role for systems that serve HTTP traffic",
+  "chef_type": "role",
+  "override_attributes": {
+    "apache2": {
+      "max_children": "50"
+    }
+  }
+}
